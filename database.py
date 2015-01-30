@@ -1,5 +1,6 @@
 import sqlite3 as lite
 import pandas as pd
+import sys
 
 con = lite.connect('getting_started.db')
 
@@ -18,13 +19,11 @@ with con:
 	cols = [desc[0] for desc in cur.description]
 	df = pd.DataFrame(rows, columns=cols)
 
-	print type(rows)
-	
 	print "The weather is warm in July in these cities: "
-
+	
 	for row in rows:
 		city = row[0].rstrip()
 		state = row[1].lstrip()
-		print city,",",state,
-
-	
+		str = ", "
+		city_state = (city, state)
+		print str.join( city_state )

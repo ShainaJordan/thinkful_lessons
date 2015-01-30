@@ -15,7 +15,7 @@ with con:
 	cur.execute("create table cities (name text, state text)")
 	cur.execute("create table weather (city text, year integer, warm_month text, cold_month text, average_high integer)")
 	cur.executemany("INSERT INTO cities VALUES(?,?)", cities)
-	cur.executemany("INSERT INTO weather VALUES(?,?,?,?)", weather)
+	cur.executemany("INSERT INTO weather VALUES(?,?,?,?,?)", weather)
 	cur.execute("select cities.name, cities.state from weather join cities on cities.name = weather.city where warm_month = 'July'")
 
 	rows = cur.fetchall()

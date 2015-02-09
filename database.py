@@ -34,4 +34,6 @@ with con:
 		state = row[1].lstrip()
 		str = ", "
 		city_state = (city, state)
-		print str.join( city_state )
+		print str.join( city_state ),
+
+#add in lowercase edgecase

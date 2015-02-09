@@ -26,6 +26,8 @@ column_names = data[0] # this is the first row
 data_rows = data[1::] # these are all the following rows of data
 df = pd.DataFrame(data_rows, columns=column_names)
 
+print column_names
+
 # Convert Alcohol and Tobacco columns to float
 df['Alcohol'] = df['Alcohol'].astype(float)
 df['Tobacco'] = df['Tobacco'].astype(float)

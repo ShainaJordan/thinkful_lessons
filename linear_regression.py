@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 loansData = pd.read_csv('https://spark-public.s3.amazonaws.com/dataanalysis/loansData.csv')
 
@@ -10,7 +11,16 @@ loansData['Loan.Length'] = loansData['Loan.Length'].map(lambda x: int(x.rstrip('
 
 print loansData['Loan.Length'][0:5]
 
-cleanFICORange = loansData['FICO.Range'].map(lambda x: x.split('-'))
-cleanFICORange = cleanFICORange.map(lambda x: [int(n) for n in x]).values
+loansData['FICO.Score'] = loansData['FICO.Range'].map(lambda x: int(x.split('-')[0]))
 
-print cleanFICORange
+print loansData['FICO.Score'][0:5]
+
+plt.figure()
+p = loansData['FICO.Score'].hist()
+plt.show()
+
+#a = pd.scatter_matrix(loansData, alpha=0.05, figsize=(10,10))
+
+plt.figure()
+a = pd.scatter_matrix(loansData, alpha=0.05, figsize=(10,10), diagonal='hist')
+plt.show()

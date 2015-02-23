@@ -36,9 +36,9 @@ print coeff
 
 #plt.show()
 
-#def logistic_function(intercept, fico, loanamt, coeff):
-#	p = 1/(1 + np.exp(intercept + coeff*(fico) - (loanamt)))
-#	print p
+def logistic_function_dynamic(intercept, fico, loanamt, coeff):
+	p = 1/(1 + np.exp(coeff[0] + coeff[1]*(fico) - coeff[2]*(loanamt)))
+	print p
 
 def logistic_function(intercept, fico, loanamt):
 	p = 1/(1 + np.exp(-60.125045 + .087423*(fico) - .000174*(loanamt)))
@@ -49,7 +49,5 @@ loanamt = 10000
 
 logistic_function(intercept, fico, loanamt)
 
-
-
-
+logistic_function_dynamic(intercept, fico, loanamt, coeff)
 	

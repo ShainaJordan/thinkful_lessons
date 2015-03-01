@@ -31,23 +31,20 @@ result = logit.fit()
 coeff = result.params
 print coeff
 
-#x = np.arange(-2,16)
-#plt.plot(x, 1/(1+np.exp(-x)))
+#loanamt = 10000
+#fico = 720
 
-#plt.show()
+def logistic_function(intercept, fico, loanamt, coeff):
+	p = 1/(1 + np.exp(coeff[0] + coeff[1]*(fico) + coeff[2]*(loanamt)))
+	plt.plot(fico, p)
 
-def logistic_function_dynamic(intercept, fico, loanamt, coeff):
-	p = 1/(1 + np.exp(coeff[0] + coeff[1]*(fico) - coeff[2]*(loanamt)))
-	print p
+def inv_logistic_function(intercept, fico, loanamt, coeff):
+	p_inv = 1/(1 + np.exp(-coeff[0] - coeff[1]*(fico) - coeff[2]*(loanamt)))
+	plt.plot(fico, p_inv)
 
-def logistic_function(intercept, fico, loanamt):
-	p = 1/(1 + np.exp(-60.125045 + .087423*(fico) - .000174*(loanamt)))
-	print p
+logistic_function(intercept, fico, loanamt, coeff)
+inv_logistic_function(intercept, fico, loanamt, coeff)
 
-fico = 720
-loanamt = 10000
+plt.show()
 
-logistic_function(intercept, fico, loanamt)
 
-logistic_function_dynamic(intercept, fico, loanamt, coeff)
-	

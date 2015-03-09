@@ -46,4 +46,6 @@ print 'Intercept with Income: ', g.params
 print 'P-Values with Income: ', g.pvalues
 print 'R-Squared with Income: ', g.rsquared
 
-print 'R-Squared for Income and Ownership: ', h.rsquared
+#print 'R-Squared for Income and Ownership: ', h.rsquared
+#multivariate analysis - model relationship between different factor variables - step wise linear regression - copmuter programs - instead of trying to do different combos - it does it itself and does it itself 
+

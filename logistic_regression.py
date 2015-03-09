@@ -31,19 +31,22 @@ result = logit.fit()
 coeff = result.params
 print coeff
 
-#loanamt = 10000
 #fico = 720
 
 def logistic_function(intercept, fico, loanamt, coeff):
 	p = 1/(1 + np.exp(coeff[0] + coeff[1]*(fico) + coeff[2]*(loanamt)))
-	plt.plot(fico, p)
+	plt.plot(fico, p, 'ro')
 
 def inv_logistic_function(intercept, fico, loanamt, coeff):
 	p_inv = 1/(1 + np.exp(-coeff[0] - coeff[1]*(fico) - coeff[2]*(loanamt)))
 	plt.plot(fico, p_inv)
 
-logistic_function(intercept, fico, loanamt, coeff)
-inv_logistic_function(intercept, fico, loanamt, coeff)
+#loanamt = 10000
+#call np.sort() by column
+#sort pandas by column
+
+logistic_function(intercept, fico, 10000, coeff)
+inv_logistic_function(intercept, fico, 10000, coeff)
 
 plt.show()
 

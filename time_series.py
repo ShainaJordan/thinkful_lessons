@@ -7,7 +7,9 @@ loansData = pd.read_csv('LoanStats3b.csv', header=True, low_memory=False)
 
 # converts string to datetime object in pandas:
 loansData['issue_d_format'] = pd.to_datetime(loansData['issue_d']) 
+#created for different period
 dfts = loansData.set_index('issue_d_format') 
+#then have to convert to datetime
 
 #create a timeseries
 year_month_summary = dfts.groupby(lambda x : x.year * 100 + x.month).count()

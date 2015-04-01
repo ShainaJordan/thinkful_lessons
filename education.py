@@ -12,9 +12,8 @@ soup = BeautifulSoup(r.content)
 table = soup('table')[6]
  
 headers=soup.find("tr", {"class": "lheader"})
-print headers
+temp=headers.find_all("td")
+print temp.td.contents
 
-print headers.td.span.contents
-print headers.td.div.contents
-
-print soup.tr.contents
+print headers.td.contents
+print headers.div.contents
